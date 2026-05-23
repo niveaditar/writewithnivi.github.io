@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eleanor Voss — Author</title>
+<meta name="description" content="Eleanor Voss — novelist, essayist, and storyteller. Explore books, short stories, and featured work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --ink:#1a1612;--parchment:#f7f3ec;--cream:#ede8df;
+  --gold:#b8975a;--gold-light:#d4b87a;--muted:#6b6258;
+  --rule:#d6cfc4;--white:#fdfaf6;--dark:#3d2b1f;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;--max:1160px;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);line-height:1.7;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--gold);text-decoration:none;transition:color .2s}
+a:hover{color:var(--dark)}
+p{margin-bottom:1.1em}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:300;line-height:1.1;letter-spacing:.01em}
+h1{font-size:clamp(3rem,7vw,6rem)}
+h2{font-size:clamp(1.9rem,4vw,3rem)}
+h3{font-size:clamp(1.2rem,2.5vw,1.7rem)}
+
+/* utilities */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+.sec{padding:96px 40px}
+.label{font-family:var(--sans);font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem}
+.rule{width:44px;height:1px;background:var(--gold);margin:1.4rem 0}
+.rule-c{margin-left:auto;margin-right:auto}
+.btn{display:inline-block;font-family:var(--sans);font-size:.73rem;letter-spacing:.18em;text-transform:uppercase;padding:13px 32px;border:1px solid currentColor;transition:background .22s,color .22s;cursor:pointer;background:transparent}
+.btn-dark{color:var(--ink)}.btn-dark:hover{background:var(--ink);color:var(--white)}
+.btn-ghost{color:var(--gold);border-color:var(--gold)}.btn-ghost:hover{background:var(--gold);color:var(--white)}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:24px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .3s,padding .3s,box-shadow .3s}
+.nav.stuck{background:rgba(253,250,246,.97);padding:14px 40px;box-shadow:0 1px 0 var(--rule);backdrop-filter:blur(8px)}
+.nav-logo{font-family:var(--serif);font-size:1.35rem;color:var(--ink);letter-spacing:.04em}
+.nav-logo em{font-style:italic;font-weight:300}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:9px 20px;transition:all .2s}
+.nav-cta:hover{background:var(--gold);color:var(--white)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:1px;background:var(--ink);transition:all .3s}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--white);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--ink);letter-spacing:.04em}
+.mobile-menu a:hover{color:var(--gold)}
+.mob-close{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:12px;cursor:pointer;background:none;border:none;font-family:var(--sans)}
+
+/* hero */
+.hero{min-height:100vh;background:var(--parchment);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,var(--rule) 39px,var(--rule) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,var(--rule) 39px,var(--rule) 40px);opacity:.18;pointer-events:none}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:140px 60px 80px;position:relative;z-index:1}
+.hero-eyebrow{font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem}
+.hero-name{font-family:var(--serif);font-size:clamp(3.5rem,7.5vw,6.8rem);font-weight:300;line-height:1.02;color:var(--ink)}
+.hero-name em{font-style:italic;color:var(--dark)}
+.hero-sub{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--muted);margin:1rem 0 2.4rem}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-right{position:relative;overflow:hidden}
+.hero-img-wrap{position:absolute;inset:0}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:sepia(10%) contrast(1.04)}
+.hero-placeholder{width:100%;height:100%;background:linear-gradient(150deg,var(--cream) 0%,var(--rule) 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--muted);font-family:var(--serif);font-style:italic}
+.hero-quote-card{position:absolute;bottom:44px;left:40px;right:40px;background:rgba(253,250,246,.92);padding:18px 22px;border-left:2px solid var(--gold);backdrop-filter:blur(6px)}
+.hero-quote-card p{font-family:var(--serif);font-style:italic;font-size:.98rem;line-height:1.55;color:var(--dark);margin:0}
+
+/* about */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:80px;align-items:center}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:36px}
+.stat{background:var(--white);padding:22px 18px;text-align:center}
+.stat-n{font-family:var(--serif);font-size:2.7rem;font-weight:300;color:var(--gold);display:block;line-height:1}
+.stat-l{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:5px;display:block}
+.about-text p{font-size:1.03rem;color:var(--muted);line-height:1.9}
+.signature{font-family:var(--serif);font-style:italic;font-size:1.9rem;color:var(--ink);margin-top:28px;display:block}
+
+/* books */
+.books{background:var(--parchment)}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:36px;margin-top:56px}
+.book-card{display:flex;flex-direction:column;cursor:default;transition:transform .3s}
+.book-card:hover{transform:translateY(-7px)}
+.book-cover{aspect-ratio:2/3;margin-bottom:18px;overflow:hidden;border:1px solid var(--rule);position:relative}
+.book-cover img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.book-card:hover .book-cover img{transform:scale(1.04)}
+.bca{width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:24px 18px}
+.bca-title{font-family:var(--serif);font-size:1.25rem;font-weight:300;line-height:1.2;color:var(--ink)}
+.bca-author{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.book-tag{font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.book-title{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-bottom:4px}
+.book-year{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+.book-blurb{font-size:.86rem;color:var(--muted);line-height:1.65;margin:0}
+
+/* stories */
+.stories{background:var(--white)}
+.stories-list{margin-top:56px}
+.story{display:grid;grid-template-columns:72px 1fr auto;align-items:start;gap:28px;padding:32px 0;border-bottom:1px solid var(--rule);transition:padding-left .25s}
+.story:first-child{border-top:1px solid var(--rule)}
+.story:hover{padding-left:8px}
+.story-num{font-family:var(--serif);font-size:2.8rem;font-weight:300;color:var(--rule);line-height:1;padding-top:4px}
+.story-name{font-family:var(--serif);font-size:1.4rem;color:var(--ink);margin-bottom:5px}
+.story-meta{display:flex;gap:14px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:9px;flex-wrap:wrap}
+.story-meta .pub{color:var(--gold)}
+.story-blurb{font-size:.9rem;color:var(--muted);line-height:1.7;margin:0}
+.story-link{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:nowrap;padding-top:6px;border-bottom:1px solid transparent;transition:border-color .2s;align-self:flex-start}
+.story-link:hover{border-color:var(--gold)}
+
+/* featured */
+.featured{background:var(--dark);color:var(--parchment)}
+.featured .label{color:var(--gold-light)}
+.featured h2{color:var(--parchment)}
+.featured .rule{background:var(--gold-light)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+.feat-item{background:rgba(255,255,255,.05);padding:36px 28px;border:1px solid rgba(255,255,255,.07);transition:background .25s}
+.feat-item:hover{background:rgba(255,255,255,.09)}
+.feat-item.gold-card{background:var(--gold);border-color:var(--gold)}
+.feat-item.gold-card .feat-pub,.feat-item.gold-card .feat-title,.feat-item.gold-card .feat-blurb,.feat-item.gold-card .feat-yr,.feat-item.gold-card .feat-award{color:var(--white)!important;background:rgba(255,255,255,.2)!important}
+.feat-award{font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;background:rgba(184,151,90,.18);color:var(--gold-light);padding:4px 10px;display:inline-block;margin-bottom:16px}
+.feat-pub{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px}
+.feat-title{font-family:var(--serif);font-size:1.28rem;font-weight:300;color:var(--parchment);line-height:1.3;margin-bottom:10px}
+.feat-blurb{font-size:.86rem;color:rgba(237,232,223,.65);line-height:1.7;margin-bottom:22px}
+.feat-yr{font-size:.7rem;letter-spacing:.14em;color:rgba(237,232,223,.45)}
+
+/* press */
+.press{background:var(--cream)}
+.press-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:28px;margin-top:56px}
+.press-card{background:var(--white);padding:30px;border:1px solid var(--rule)}
+.press-q{font-family:var(--serif);font-style:italic;font-size:1.02rem;line-height:1.65;color:var(--ink);margin-bottom:18px;position:relative;padding-left:8px}
+.press-q::before{content:'\201C';font-size:3.5rem;line-height:0;color:var(--gold);opacity:.25;position:absolute;top:18px;left:-8px}
+.press-src{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.press-pub{font-size:.78rem;color:var(--muted);margin-top:3px}
+
+/* newsletter */
+.newsletter{background:var(--parchment);text-align:center}
+.newsletter h2{margin-bottom:12px}
+.nl-sub{font-family:var(--serif);font-style:italic;font-size:1.07rem;color:var(--muted);margin-bottom:36px}
+.nl-form{display:flex;max-width:420px;margin:0 auto}
+.nl-form input{flex:1;padding:13px 18px;border:1px solid var(--rule);border-right:none;background:var(--white);font-family:var(--sans);font-size:.9rem;color:var(--ink);outline:none}
+.nl-form input::placeholder{color:var(--muted)}
+.nl-form input:focus{border-color:var(--gold)}
+.nl-form button{background:var(--gold);color:var(--white);border:1px solid var(--gold);padding:13px 24px;font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.nl-form button:hover{background:var(--dark);border-color:var(--dark)}
+.nl-note{font-size:.75rem;color:var(--muted);margin-top:14px}
+
+/* footer */
+.footer{background:var(--ink);color:var(--muted);padding:60px 40px 36px}
+.footer-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:56px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.07)}
+.footer-brand-name{font-family:var(--serif);font-size:1.5rem;color:var(--parchment);display:block;margin-bottom:10px}
+.footer-brand p{font-size:.86rem;line-height:1.7;color:rgba(237,232,223,.45)}
+.footer-col h4{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-family:var(--sans);font-weight:400}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:9px}
+.footer-col a{font-size:.86rem;color:rgba(237,232,223,.45);transition:color .2s}
+.footer-col a:hover{color:var(--parchment)}
+.footer-bottom{max-width:var(--max);margin:30px auto 0;display:flex;justify-content:space-between;align-items:center;font-size:.76rem;color:rgba(237,232,223,.28)}
+.socials{display:flex;gap:18px}
+.socials a{color:rgba(237,232,223,.28);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.socials a:hover{color:var(--gold)}
+
+/* fade animation */
+.fade-target{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.fade-target.visible{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{height:55vw;min-height:320px}
+  .hero-left{padding:120px 40px 56px}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .sec{padding:72px 24px}
+  .wrap{padding:0 24px}
+  .nav{padding:18px 24px}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero-left{padding:100px 28px 52px}
+  .story{grid-template-columns:1fr;gap:10px}
+  .story-num{display:none}
+  .feat-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:36px}
+  .footer-bottom{flex-direction:column;gap:14px;text-align:center}
+  .nl-form{flex-direction:column}
+  .nl-form input{border-right:1px solid var(--rule);border-bottom:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">Eleanor <em>Voss</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#featured">Featured</a></li>
+    <li><a href="#press">Press</a></li>
+  </ul>
+  <a href="#newsletter" class="nav-cta">Newsletter</a>
+  <button class="hamburger" id="hamburger" aria-label="Open navigation">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="#about"     class="mob-link">About</a>
+  <a href="#books"     class="mob-link">Books</a>
+  <a href="#stories"   class="mob-link">Stories</a>
+  <a href="#featured"  class="mob-link">Featured</a>
+  <a href="#press"     class="mob-link">Press</a>
+  <a href="#newsletter" class="mob-link">Newsletter</a>
+  <button class="mob-close" id="mob-close">Close ✕</button>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Author &amp; Storyteller</span>
+    <h1 class="hero-name">Eleanor<br><em>Voss</em></h1>
+    <p class="hero-sub">Novelist · Essayist · Storyteller</p>
+    <div class="hero-actions">
+      <a href="#books" class="btn btn-dark">Explore Books</a>
+      <a href="#about" class="btn btn-ghost">About Me</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <!--
+        TO ADD YOUR PHOTO:
+        Replace the placeholder div below with:
+        <img src="your-photo.jpg" alt="Eleanor Voss">
+      -->
+      <div class="hero-placeholder">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8" opacity=".3"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span style="font-size:.9rem">Author photo</span>
+        <span style="font-size:.75rem;opacity:.6">Replace placeholder in HTML</span>
+      </div>
+    </div>
+    <div class="hero-quote-card">
+      <p>"Stories are the way we make sense of the world — and the way we make sense of ourselves."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about sec" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <span class="label">By the Numbers</span>
+        <div class="rule"></div>
+        <div class="stats">
+          <div class="stat"><span class="stat-n">12</span><span class="stat-l">Books</span></div>
+          <div class="stat"><span class="stat-n">40+</span><span class="stat-l">Short Stories</span></div>
+          <div class="stat"><span class="stat-n">7</span><span class="stat-l">Awards</span></div>
+          <div class="stat"><span class="stat-n">18</span><span class="stat-l">Years Writing</span></div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="label">About the Author</span>
+        <h2>Eleanor Voss</h2>
+        <div class="rule"></div>
+        <p>I write about the spaces between things — the pause before a word is spoken, the moment before a decision changes everything. My work explores ordinary lives cracked open by grief, desire, and the quiet persistence of hope.</p>
+        <p>My novels have been translated into fourteen languages and published across three continents. I've taught at the Iowa Writers' Workshop, the Bread Loaf Conference, and the Tin House Summer Workshop. I live in the Pacific Northwest with too many notebooks and not enough shelf space.</p>
+        <p>Before turning to fiction full-time, I was a journalist and briefly a cartographer — an occupation that, I've decided, was simply early training for the map-making that novels require.</p>
+        <a href="#books" class="btn btn-dark" style="margin-top:8px">Explore My Work</a>
+        <span class="signature">Eleanor Voss</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="books sec" id="books">
+  <div class="wrap">
+    <span class="label">Published Works</span>
+    <h2>Books</h2>
+    <div class="rule"></div>
+    <div class="books-grid">
+
+      <div class="book-card fade-target">
+        <div class="book-cover">
+          <!-- Replace with: <img src="cover1.jpg" alt="The Weight of Small Things"> -->
+          <div class="bca" style="background:#d6cfc4">
+            <span class="bca-title">The Weight of Small Things</span>
+            <span class="bca-author">Eleanor Voss</span>
+          </div>
+        </div>
+        <div class="book-tag">Literary Fiction</div>
+        <div class="book-title">The Weight of Small Things</div>
+        <div class="book-year">2023</div>
+        <p class="book-blurb">A grief-stricken archivist discovers letters that rewrite her understanding of her mother's life — and her own.</p>
+        <a href="#" class="btn btn-ghost" style="margin-top:14px;font-size:.68rem">Order Now</a>
+      </div>
+
+      <div class="book-card fade-target">
+        <div class="book-cover">
+          <div class="bca" style="background:#c8bfb0">
+            <span class="bca-title">Cartography of Absence</span>
+            <span class="bca-author">Eleanor Voss</span>
+          </div>
+        </div>
+        <div class="book-tag">Short Stories</div>
+        <div class="book-title">Cartography of Absence</div>
+        <div class="book-year">2021</div>
+        <p class="book-blurb">Fifteen stories mapping the territory of loss — intimate, exact, and quietly devastating.</p>
+        <a href="#" class="btn btn-ghost" style="margin-top:14px;font-size:.68rem">Order Now</a>
+      </div>
+
+      <div class="book-card fade-target">
+        <div class="book-cover">
+          <div class="bca" style="background:#e8dfd2">
+            <span class="bca-title">Before the Reckoning</span>
+            <span class="bca-author">Eleanor Voss</span>
+          </div>
+        </div>
+        <div class="book-tag">Novel</div>
+        <div class="book-title">Before the Reckoning</div>
+        <div class="book-year">2019</div>
+        <p class="book-blurb">Three sisters return to their childhood home and must confront the secret that kept them apart for decades.</p>
+        <a href="#" class="btn btn-ghost" style="margin-top:14px;font-size:.68rem">Order Now</a>
+      </div>
+
+      <div class="book-card fade-target">
+        <div class="book-cover">
+          <div class="bca" style="background:#ddd4c6">
+            <span class="bca-title">Still Water</span>
+            <span class="bca-author">Eleanor Voss</span>
+          </div>
+        </div>
+        <div class="book-tag">Debut Novel</div>
+        <div class="book-title">Still Water</div>
+        <div class="book-year">2016</div>
+        <p class="book-blurb">A luminous debut about a marine biologist who returns to the island town she fled at seventeen.</p>
+        <a href="#" class="btn btn-ghost" style="margin-top:14px;font-size:.68rem">Order Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="stories sec" id="stories">
+  <div class="wrap">
+    <span class="label">Short Fiction</span>
+    <h2>Short Stories</h2>
+    <div class="rule"></div>
+    <div class="stories-list">
+
+      <div class="story fade-target">
+        <div class="story-num">01</div>
+        <div>
+          <h3 class="story-name">The Last Cartographer</h3>
+          <div class="story-meta"><span class="pub">The New Yorker</span><span>2024</span><span>4,200 words</span></div>
+          <p class="story-blurb">An elderly man who drew maps for a living must guide his estranged daughter across a city he no longer recognises — or trusts.</p>
+        </div>
+        <a href="#" class="story-link">Read →</a>
+      </div>
+
+      <div class="story fade-target">
+        <div class="story-num">02</div>
+        <div>
+          <h3 class="story-name">Small Ceremonies</h3>
+          <div class="story-meta"><span class="pub">Granta</span><span>2023</span><span>3,800 words</span><span style="color:var(--gold)">★ Pushcart Nominee</span></div>
+          <p class="story-blurb">A woman returns her late husband's library books — one per week, for a year — and strikes up an unlikely friendship with the librarian.</p>
+        </div>
+        <a href="#" class="story-link">Read →</a>
+      </div>
+
+      <div class="story fade-target">
+        <div class="story-num">03</div>
+        <div>
+          <h3 class="story-name">The Interpreter's Garden</h3>
+          <div class="story-meta"><span class="pub">Paris Review</span><span>2022</span><span>5,100 words</span></div>
+          <p class="story-blurb">A UN interpreter who translates other people's words for a living finds herself without language when her brother is arrested.</p>
+        </div>
+        <a href="#" class="story-link">Read →</a>
+      </div>
+
+      <div class="story fade-target">
+        <div class="story-num">04</div>
+        <div>
+          <h3 class="story-name">Everything We Kept</h3>
+          <div class="story-meta"><span class="pub">Tin House</span><span>2021</span><span>2,900 words</span></div>
+          <p class="story-blurb">Two women go through their mother's belongings and discover she had been leading a life they knew nothing about.</p>
+        </div>
+        <a href="#" class="story-link">Read →</a>
+      </div>
+
+      <div class="story fade-target">
+        <div class="story-num">05</div>
+        <div>
+          <h3 class="story-name">Letter to an Unnamed Country</h3>
+          <div class="story-meta"><span class="pub">n+1</span><span>2020</span><span>6,400 words</span><span style="color:var(--gold)">★ Best American Short Stories</span></div>
+          <p class="story-blurb">A series of unsent letters between two people who met only once, at a border crossing, and never saw each other again.</p>
+        </div>
+        <a href="#" class="story-link">Read →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured sec" id="featured">
+  <div class="wrap">
+    <span class="label">Selected Publications</span>
+    <h2>Featured Work</h2>
+    <div class="rule"></div>
+    <div class="feat-grid">
+
+      <div class="feat-item gold-card fade-target">
+        <span class="feat-award">★ Editor's Choice — The Atlantic</span>
+        <div class="feat-pub" style="color:var(--white)">The Atlantic</div>
+        <h3 class="feat-title" style="color:var(--white)">On Writing Grief Without Sentimentality</h3>
+        <p class="feat-blurb" style="color:rgba(255,255,255,.85)">An essay on the craft of approaching loss on the page — and why restraint is its own kind of courage.</p>
+        <div class="feat-yr" style="color:rgba(255,255,255,.65)">2024</div>
+      </div>
+
+      <div class="feat-item fade-target">
+        <div class="feat-pub">Literary Hub</div>
+        <h3 class="feat-title">The Problem With the Unreliable Narrator</h3>
+        <p class="feat-blurb">Why a technique beloved by critics often fails readers — and what to do instead.</p>
+        <div class="feat-yr">2023</div>
+      </div>
+
+      <div class="feat-item fade-target">
+        <span class="feat-award">NPR Best of the Year</span>
+        <div class="feat-pub">Granta</div>
+        <h3 class="feat-title">In Praise of Slow Reading</h3>
+        <p class="feat-blurb">A personal essay on reading as a form of attention — and why speed-reading is its own kind of violence.</p>
+        <div class="feat-yr">2023</div>
+      </div>
+
+      <div class="feat-item fade-target">
+        <div class="feat-pub">The Guardian</div>
+        <h3 class="feat-title">My Year of Reading Only Women</h3>
+        <p class="feat-blurb">What happened when I spent twelve months reading nothing but books by women writers from forty countries.</p>
+        <div class="feat-yr">2022</div>
+      </div>
+
+      <div class="feat-item fade-target">
+        <div class="feat-pub">The New York Times</div>
+        <h3 class="feat-title">The Notebooks I Never Finished</h3>
+        <p class="feat-blurb">On incompleteness as a creative practice — and the notebooks I've started and abandoned over eighteen years.</p>
+        <div class="feat-yr">2022</div>
+      </div>
+
+      <div class="feat-item fade-target">
+        <div class="feat-pub">Paris Review</div>
+        <h3 class="feat-title">What Cartography Taught Me About Character</h3>
+        <p class="feat-blurb">Before I was a novelist, I made maps. The discipline changed how I think about the shape of a story.</p>
+        <div class="feat-yr">2021</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="press sec" id="press">
+  <div class="wrap">
+    <span class="label" style="text-align:center;display:block">Critical Praise</span>
+    <h2 style="text-align:center">What They're Saying</h2>
+    <div class="rule rule-c"></div>
+    <div class="press-grid">
+
+      <div class="press-card fade-target">
+        <p class="press-q">A luminous, disquieting debut from a writer who understands that the best fiction operates at the level of whisper, not shout.</p>
+        <div class="press-src">The New York Times Book Review</div>
+        <div class="press-pub">Review of <em>Still Water</em></div>
+      </div>
+
+      <div class="press-card fade-target">
+        <p class="press-q">Voss writes with a precision that feels almost surgical — and yet every page breathes with warmth. She is the real thing.</p>
+        <div class="press-src">The Guardian</div>
+        <div class="press-pub">Best Books of the Year, 2023</div>
+      </div>
+
+      <div class="press-card fade-target">
+        <p class="press-q">These stories are perfect small machines. You step inside one and it takes you somewhere you never expected to go.</p>
+        <div class="press-src">Esquire</div>
+        <div class="press-pub">Review of <em>Cartography of Absence</em></div>
+      </div>
+
+      <div class="press-card fade-target">
+        <p class="press-q">No living writer understands silence — its textures and its dangers — quite the way Eleanor Voss does.</p>
+        <div class="press-src">The Paris Review</div>
+        <div class="press-pub">On <em>The Weight of Small Things</em></div>
+      </div>
+
+      <div class="press-card fade-target">
+        <p class="press-q">She has an uncanny ability to locate the exact moment a life pivots — and to make that moment feel both inevitable and impossible.</p>
+        <div class="press-src">The Atlantic</div>
+        <div class="press-pub">2021 Fiction Roundup</div>
+      </div>
+
+      <div class="press-card fade-target">
+        <p class="press-q">An essential voice in contemporary fiction. A novel you read twice: once to find out what happens, once to understand how she did it.</p>
+        <div class="press-src">NPR Books</div>
+        <div class="press-pub">Best of the Year</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter sec" id="newsletter">
+  <div class="wrap">
+    <span class="label" style="display:block;text-align:center">Stay in Touch</span>
+    <h2>Letters from the Writing Desk</h2>
+    <p class="nl-sub">Occasional dispatches: new work, reading recommendations, and notes on the craft. No more than once a month.</p>
+    <form class="nl-form" id="nl-form">
+      <input type="email" id="nl-email" placeholder="Your email address" required aria-label="Email address">
+      <button type="submit" id="nl-btn">Subscribe</button>
+    </form>
+    <p class="nl-note" id="nl-msg">No spam, ever. Unsubscribe any time.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-brand-name">Eleanor Voss</span>
+      <p>Novelist · Essayist · Storyteller</p>
+      <p style="margin-top:10px">For rights enquiries, speaking invitations, and appearances, please get in touch via email.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Works</h4>
+      <ul>
+        <li><a href="#books">All Books</a></li>
+        <li><a href="#stories">Short Stories</a></li>
+        <li><a href="#featured">Essays &amp; Features</a></li>
+        <li><a href="#press">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+        <li><a href="mailto:hello@eleanoryvoss.com">Contact</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Goodreads</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Eleanor Voss. All rights reserved.</span>
+    <div class="socials">
+      <a href="#" target="_blank" rel="noopener">Twitter</a>
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">Goodreads</a>
+      <a href="#" target="_blank" rel="noopener">Substack</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // nav scroll
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('stuck',window.scrollY>60);
+  },{passive:true});
+
+  // mobile menu
+  var burger=document.getElementById('hamburger');
+  var menu=document.getElementById('mobile-menu');
+  var close=document.getElementById('mob-close');
+  burger.addEventListener('click',function(){menu.classList.add('open');});
+  close.addEventListener('click',function(){menu.classList.remove('open');});
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){menu.classList.remove('open');});
+  });
+
+  // smooth scroll with offset
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=this.getAttribute('href').slice(1);
+      var el=document.getElementById(id);
+      if(el){
+        e.preventDefault();
+        var top=el.getBoundingClientRect().top+window.scrollY-80;
+        window.scrollTo({top:top,behavior:'smooth'});
+      }
+    });
+  });
+
+  // intersection fade-in
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e,i){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-target').forEach(function(el,i){
+    el.style.transitionDelay=(i%4)*0.08+'s';
+    io.observe(el);
+  });
+
+  // newsletter form
+  document.getElementById('nl-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=document.getElementById('nl-btn');
+    var msg=document.getElementById('nl-msg');
+    btn.textContent='Subscribing\u2026';
+    btn.disabled=true;
+    // Replace this timeout with a real API call to Mailchimp / ConvertKit / Buttondown etc.
+    setTimeout(function(){
+      btn.textContent='Subscribed!';
+      msg.textContent='Thank you \u2014 watch your inbox for a confirmation.';
+      msg.style.color='var(--gold)';
+    },900);
+  });
+})();
+</script>
+</body>
+</html>
